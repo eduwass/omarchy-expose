@@ -2413,6 +2413,8 @@ Item {
 
                     Ui.BorderSurface {
                         id: searchBar
+                        // Out of sight until a filter is typed, as in Mission Control; typing still filters.
+                        visible: !!root.filterText
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: Math.min(Style.space(760), overviewWindow.width - Style.space(48))
                         Layout.preferredHeight: Style.space(48)
