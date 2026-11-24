@@ -382,6 +382,10 @@ Ui.BorderSurface {
 
             Loader {
                 anchors.fill: parent
+                // Only the window under the pointer or selected shows its label, as in Mission Control; the
+                // space stays so the grid does not move.
+                opacity: card.hovered || card.selected ? 1 : 0
+                Behavior on opacity { NumberAnimation { duration: 120 } }
                 sourceComponent: card.floatingFooter ? floatingFooterComponent : (card.integratedFooter ? integratedFooterComponent : (card.centeredFooter ? centeredFooterComponent : null))
             }
 
